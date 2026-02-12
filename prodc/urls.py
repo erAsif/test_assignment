@@ -5,7 +5,6 @@ from .views import ProductViewSet, BulkProduct
 router = DefaultRouter()
 
 router.register(r'products', ProductViewSet, basename='product') 
-# router.register(r'bulk-products', BulkProduct, basename='bulk-product')
 
 urlpatterns = [
     path('', include(router.urls)),

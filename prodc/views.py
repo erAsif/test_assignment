@@ -58,7 +58,7 @@ class BulkProduct(generics.ListCreateAPIView):
 
             cache_key = 'bulk_product_cache'
             cache.set(cache_key, serializer.validated_data, timeout=5*60)
-            
+            serializer.save()
             return Response(serializer.data, status=201)
         except Exception as e:  
             return Response({'error': str(e)}, status=400)
